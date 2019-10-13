@@ -12,6 +12,7 @@
 		A73A826B2352672C00EA8A40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A73A826A2352672C00EA8A40 /* Assets.xcassets */; };
 		A73A826E2352672C00EA8A40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A73A826D2352672C00EA8A40 /* Preview Assets.xcassets */; };
 		A73A82712352672C00EA8A40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73A826F2352672C00EA8A40 /* Main.storyboard */; };
+		A73A827B2353257600EA8A40 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A827A2353257600EA8A40 /* StatusBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		A73A82702352672C00EA8A40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A73A82722352672C00EA8A40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A73A82732352672C00EA8A40 /* Carol.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carol.entitlements; sourceTree = "<group>"; };
+		A73A827A2353257600EA8A40 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		A73A82652352672C00EA8A40 /* Carol */ = {
 			isa = PBXGroup;
 			children = (
+				A73A82792353255B00EA8A40 /* Helpers */,
 				A73A82662352672C00EA8A40 /* AppDelegate.swift */,
 				A73A82682352672C00EA8A40 /* ContentView.swift */,
 				A73A826A2352672C00EA8A40 /* Assets.xcassets */,
@@ -72,6 +75,14 @@
 				A73A826D2352672C00EA8A40 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A73A82792353255B00EA8A40 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A73A827A2353257600EA8A40 /* StatusBarController.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A73A82692352672C00EA8A40 /* ContentView.swift in Sources */,
+				A73A827B2353257600EA8A40 /* StatusBarController.swift in Sources */,
 				A73A82672352672C00EA8A40 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
