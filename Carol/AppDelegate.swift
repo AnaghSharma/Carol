@@ -10,30 +10,30 @@ import Cocoa
 import SwiftUI
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate
+{
+    var storyboard = NSStoryboard.init(name: "Main", bundle: nil)
+    var controller = NSViewController.init()
+    var popover = NSPopover.init()
+    var statusBar: StatusBarController?
 
-    var window: NSWindow!
-
-
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification)
+    {
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
 
-        // Create the window and set the content view. 
-        window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered, defer: false)
-        window.center()
-        window.setFrameAutosaveName("Main Window")
-        window.contentView = NSHostingView(rootView: contentView)
-        window.makeKeyAndOrderFront(nil)
+        // Create the Status Bar Item and set the content view.
+        controller = storyboard.instantiateController(identifier: "PopupController")
+        popover.contentViewController = controller
+        popover.contentSize = NSSize(width: 360, height: 360)
+        popover.contentViewController?.view = NSHostingView(rootView: contentView)
+        
+        statusBar = StatusBarController.init(popover)
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
+    func applicationWillTerminate(_ aNotification: Notification)
+    {
         // Insert code here to tear down your application
     }
-
-
 }
 

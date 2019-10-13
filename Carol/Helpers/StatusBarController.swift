@@ -15,14 +15,18 @@ class StatusBarController
     var popover: NSPopover
     var statusBarButton: NSStatusBarButton
     
-    init(popover: NSPopover)
+    init(_ popover: NSPopover)
     {
         statusBar = NSStatusBar.init()
         statusItem = statusBar.statusItem(withLength: NSStatusItem.variableLength)
         statusBarButton = statusItem.button!
         self.popover = popover
         
+        // For testing purpose
+        statusBarButton.title = "Carol"
+        
         statusBarButton.action = #selector(togglePopover(sender:))
+        statusBarButton.target = self
     }
     
     @objc func togglePopover(sender: AnyObject)
@@ -44,6 +48,6 @@ class StatusBarController
     
     func hidePopover(_ sender: AnyObject)
     {
-        popover.close()
+        popover.performClose(sender)
     }
 }
