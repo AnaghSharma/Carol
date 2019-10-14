@@ -16,6 +16,7 @@
 		A73A827D2353472900EA8A40 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A827C2353472900EA8A40 /* EventMonitor.swift */; };
 		A73A8283235378CC00EA8A40 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A8282235378CC00EA8A40 /* LoadingView.swift */; };
 		A73A82862353897000EA8A40 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A82852353897000EA8A40 /* ProgressIndicator.swift */; };
+		A77750F22354ECAE000874C4 /* GetCurrentSong.txt in Resources */ = {isa = PBXBuildFile; fileRef = A77750F12354ECAE000874C4 /* GetCurrentSong.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A73A827C2353472900EA8A40 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		A73A8282235378CC00EA8A40 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		A73A82852353897000EA8A40 /* ProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
+		A77750F12354ECAE000874C4 /* GetCurrentSong.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCurrentSong.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		A73A82652352672C00EA8A40 /* Carol */ = {
 			isa = PBXGroup;
 			children = (
+				A77750F02354EB6C000874C4 /* Scripts */,
 				A73A82842353895A00EA8A40 /* Controls */,
 				A73A82792353255B00EA8A40 /* Helpers */,
 				A73A82662352672C00EA8A40 /* AppDelegate.swift */,
@@ -108,6 +111,14 @@
 				A73A82852353897000EA8A40 /* ProgressIndicator.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		A77750F02354EB6C000874C4 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				A77750F12354ECAE000874C4 /* GetCurrentSong.txt */,
+			);
+			path = Scripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 			files = (
 				A73A82712352672C00EA8A40 /* Main.storyboard in Resources */,
 				A73A826E2352672C00EA8A40 /* Preview Assets.xcassets in Resources */,
+				A77750F22354ECAE000874C4 /* GetCurrentSong.txt in Resources */,
 				A73A826B2352672C00EA8A40 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
