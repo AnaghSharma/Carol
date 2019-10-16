@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		A73A8283235378CC00EA8A40 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A8282235378CC00EA8A40 /* LoadingView.swift */; };
 		A73A82862353897000EA8A40 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A82852353897000EA8A40 /* ProgressIndicator.swift */; };
 		A77750F22354ECAE000874C4 /* GetCurrentSong.txt in Resources */ = {isa = PBXBuildFile; fileRef = A77750F12354ECAE000874C4 /* GetCurrentSong.txt */; };
+		A77750F523578225000874C4 /* TinyNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A77750F423578225000874C4 /* TinyNetworking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A77750F523578225000874C4 /* TinyNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +139,9 @@
 			dependencies = (
 			);
 			name = Carol;
+			packageProductDependencies = (
+				A77750F423578225000874C4 /* TinyNetworking */,
+			);
 			productName = Carol;
 			productReference = A73A82632352672C00EA8A40 /* Carol.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +170,9 @@
 				Base,
 			);
 			mainGroup = A73A825A2352672B00EA8A40;
+			packageReferences = (
+				A77750F323578225000874C4 /* XCRemoteSwiftPackageReference "tiny-networking" */,
+			);
 			productRefGroup = A73A82642352672C00EA8A40 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -399,6 +407,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A77750F323578225000874C4 /* XCRemoteSwiftPackageReference "tiny-networking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/objcio/tiny-networking";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A77750F423578225000874C4 /* TinyNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A77750F323578225000874C4 /* XCRemoteSwiftPackageReference "tiny-networking" */;
+			productName = TinyNetworking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A73A825B2352672B00EA8A40 /* Project object */;
 }
