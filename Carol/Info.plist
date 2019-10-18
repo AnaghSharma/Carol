@@ -39,5 +39,7 @@
 	<true/>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>Need Permission</string>
 </dict>
 </plist>

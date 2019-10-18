@@ -16,8 +16,10 @@
 		A73A827D2353472900EA8A40 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A827C2353472900EA8A40 /* EventMonitor.swift */; };
 		A73A8283235378CC00EA8A40 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A8282235378CC00EA8A40 /* LoadingView.swift */; };
 		A73A82862353897000EA8A40 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A82852353897000EA8A40 /* ProgressIndicator.swift */; };
-		A77750F22354ECAE000874C4 /* GetCurrentSong.txt in Resources */ = {isa = PBXBuildFile; fileRef = A77750F12354ECAE000874C4 /* GetCurrentSong.txt */; };
+		A77750F22354ECAE000874C4 /* GetCurrentTrack.txt in Resources */ = {isa = PBXBuildFile; fileRef = A77750F12354ECAE000874C4 /* GetCurrentTrack.txt */; };
 		A77750F523578225000874C4 /* TinyNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A77750F423578225000874C4 /* TinyNetworking */; };
+		A77750F723578D99000874C4 /* ScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77750F623578D99000874C4 /* ScriptExecutor.swift */; };
+		A77750FA235790A1000874C4 /* ReadFileContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77750F9235790A1000874C4 /* ReadFileContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +35,9 @@
 		A73A827C2353472900EA8A40 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		A73A8282235378CC00EA8A40 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		A73A82852353897000EA8A40 /* ProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
-		A77750F12354ECAE000874C4 /* GetCurrentSong.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCurrentSong.txt; sourceTree = "<group>"; };
+		A77750F12354ECAE000874C4 /* GetCurrentTrack.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCurrentTrack.txt; sourceTree = "<group>"; };
+		A77750F623578D99000874C4 /* ScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptExecutor.swift; sourceTree = "<group>"; };
+		A77750F9235790A1000874C4 /* ReadFileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadFileContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 		A73A82652352672C00EA8A40 /* Carol */ = {
 			isa = PBXGroup;
 			children = (
+				A77750F823579081000874C4 /* Utilities */,
 				A77750F02354EB6C000874C4 /* Scripts */,
 				A73A82842353895A00EA8A40 /* Controls */,
 				A73A82792353255B00EA8A40 /* Helpers */,
@@ -94,6 +99,7 @@
 			children = (
 				A73A827A2353257600EA8A40 /* StatusBarController.swift */,
 				A73A827C2353472900EA8A40 /* EventMonitor.swift */,
+				A77750F623578D99000874C4 /* ScriptExecutor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -118,9 +124,17 @@
 		A77750F02354EB6C000874C4 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				A77750F12354ECAE000874C4 /* GetCurrentSong.txt */,
+				A77750F12354ECAE000874C4 /* GetCurrentTrack.txt */,
 			);
 			path = Scripts;
+			sourceTree = "<group>";
+		};
+		A77750F823579081000874C4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A77750F9235790A1000874C4 /* ReadFileContent.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +203,7 @@
 			files = (
 				A73A82712352672C00EA8A40 /* Main.storyboard in Resources */,
 				A73A826E2352672C00EA8A40 /* Preview Assets.xcassets in Resources */,
-				A77750F22354ECAE000874C4 /* GetCurrentSong.txt in Resources */,
+				A77750F22354ECAE000874C4 /* GetCurrentTrack.txt in Resources */,
 				A73A826B2352672C00EA8A40 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +221,8 @@
 				A73A8283235378CC00EA8A40 /* LoadingView.swift in Sources */,
 				A73A82862353897000EA8A40 /* ProgressIndicator.swift in Sources */,
 				A73A827D2353472900EA8A40 /* EventMonitor.swift in Sources */,
+				A77750FA235790A1000874C4 /* ReadFileContent.swift in Sources */,
+				A77750F723578D99000874C4 /* ScriptExecutor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
