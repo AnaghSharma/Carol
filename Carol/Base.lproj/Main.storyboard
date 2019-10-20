@@ -680,10 +680,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="5a1-Lq-jDO">
             <objects>
-                <viewController storyboardIdentifier="PopupController" id="T3f-ul-jBe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopupController" id="T3f-ul-jBe" customClass="MainViewController" customModule="Carol" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="A60-vo-y2O">
                         <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
                         <autoresizingMask key="autoresizingMask"/>

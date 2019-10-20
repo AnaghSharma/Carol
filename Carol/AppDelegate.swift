@@ -12,8 +12,6 @@ import SwiftUI
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate
 {
-    var storyboard = NSStoryboard.init(name: "Main", bundle: nil)
-    var controller = NSViewController.init()
     var popover = NSPopover.init()
     var statusBar: StatusBarController?
 
@@ -23,8 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
         let contentView = ContentView()
 
         // Create the Status Bar Item and set the content view.
-        controller = storyboard.instantiateController(identifier: "PopupController")
-        popover.contentViewController = controller
+        popover.contentViewController = MainViewController()
         popover.contentSize = NSSize(width: 360, height: 360)
         popover.contentViewController?.view = NSHostingView(rootView: contentView)
         
