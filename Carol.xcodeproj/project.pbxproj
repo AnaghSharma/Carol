@@ -20,7 +20,6 @@
 		A77750F523578225000874C4 /* TinyNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A77750F423578225000874C4 /* TinyNetworking */; };
 		A77750F723578D99000874C4 /* ScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77750F623578D99000874C4 /* ScriptExecutor.swift */; };
 		A77750FA235790A1000874C4 /* ReadFileContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77750F9235790A1000874C4 /* ReadFileContent.swift */; };
-		A7E839102367440C009BCC7A /* Secrets.json in Resources */ = {isa = PBXBuildFile; fileRef = A7E8390F2367440C009BCC7A /* Secrets.json */; };
 		A7E8391223674437009BCC7A /* SecretsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8391123674437009BCC7A /* SecretsReader.swift */; };
 		A7F76872235B75950010C04D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F76871235B75950010C04D /* MainViewController.swift */; };
 		A7F76876235CBA840010C04D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F76875235CBA840010C04D /* Track.swift */; };
@@ -43,7 +42,6 @@
 		A77750F12354ECAE000874C4 /* GetCurrentTrack.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCurrentTrack.txt; sourceTree = "<group>"; };
 		A77750F623578D99000874C4 /* ScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptExecutor.swift; sourceTree = "<group>"; };
 		A77750F9235790A1000874C4 /* ReadFileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadFileContent.swift; sourceTree = "<group>"; };
-		A7E8390F2367440C009BCC7A /* Secrets.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Secrets.json; sourceTree = "<group>"; };
 		A7E8391123674437009BCC7A /* SecretsReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsReader.swift; sourceTree = "<group>"; };
 		A7F76871235B75950010C04D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A7F76875235CBA840010C04D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				A73A82722352672C00EA8A40 /* Info.plist */,
 				A73A82732352672C00EA8A40 /* Carol.entitlements */,
 				A73A826C2352672C00EA8A40 /* Preview Content */,
-				A7E8390F2367440C009BCC7A /* Secrets.json */,
 			);
 			path = Carol;
 			sourceTree = "<group>";
@@ -242,7 +239,6 @@
 			files = (
 				A73A82712352672C00EA8A40 /* Main.storyboard in Resources */,
 				A73A826E2352672C00EA8A40 /* Preview Assets.xcassets in Resources */,
-				A7E839102367440C009BCC7A /* Secrets.json in Resources */,
 				A77750F22354ECAE000874C4 /* GetCurrentTrack.txt in Resources */,
 				A73A826B2352672C00EA8A40 /* Assets.xcassets in Resources */,
 			);
