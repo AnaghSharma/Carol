@@ -12,8 +12,8 @@ import TinyNetworking
 
 class TrackViewModel: ObservableObject
 {
-    var track: Track?
-    var hasLyrics: Bool = false
+    @Published var track: Track?
+    @Published var hasLyrics: Bool = false
     
     private var executedTrackScript = ScriptExecutor.init(script: "GetCurrentTrack")
     
@@ -30,7 +30,7 @@ class TrackViewModel: ObservableObject
     
     func setTrack()
     {
-        hasLyrics = false
+//        hasLyrics = false
         executedTrackScript.executeScript("GetCurrentTrack")
         self.track = Track(name: (executedTrackScript.result.atIndex(1)?.stringValue)!, artist: (executedTrackScript.result.atIndex(2)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!)
         hasLyrics = true
