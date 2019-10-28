@@ -32,7 +32,25 @@ class TrackViewModel: ObservableObject
     {
         hasLyrics = false
         executedTrackScript.executeScript("GetCurrentTrack")
-        self.track = Track(name: (executedTrackScript.result.atIndex(1)?.stringValue)!, artist: (executedTrackScript.result.atIndex(2)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!)
-        hasLyrics = true
+        
+        if executedTrackScript.result.numberOfItems == 3
+        {
+            self.track = Track(name: (executedTrackScript.result.atIndex(1)?.stringValue)!, artist: (executedTrackScript.result.atIndex(2)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!)
+            hasLyrics = true
+        }
+        else if executedTrackScript.result.numberOfItems == 0
+        {
+            switch executedTrackScript.result.stringValue
+            {
+            case "1":
+                print("Nothing playing")
+            case "2":
+                print("No music app is running")
+            case "3":
+                print("Multiple tracks playing")
+            default:
+                print("Could not find the track")
+            }
+        }
     }
 }

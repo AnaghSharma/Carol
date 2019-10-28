@@ -41,5 +41,7 @@
 	<true/>
 	<key>NSAppleEventsUsageDescription</key>
 	<string>Need Permission</string>
+	<key>LSUIElement</key>
+	<true/>
 </dict>
 </plist>
