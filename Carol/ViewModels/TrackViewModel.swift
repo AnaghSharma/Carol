@@ -53,4 +53,9 @@ class TrackViewModel: ObservableObject
             }
         }
     }
+    
+    private func getLyrics()
+    {
+        
+    }
 }
