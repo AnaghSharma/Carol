@@ -19,18 +19,18 @@ class TrackViewModel: ObservableObject
     
     init()
     {
-        setTrack()
+        track = Track(name: "", artist: "", app: "")
         NotificationCenter.default.addObserver(self, selector: #selector(viewDidAppearNotificationReceived(notification:)), name: Notification.Name("ViewDidAppear"), object: nil)
     }
     
-    @objc func viewDidAppearNotificationReceived(notification: Notification)
+    @objc private func viewDidAppearNotificationReceived(notification: Notification)
     {
         setTrack()
     }
     
-    func setTrack()
+    private func setTrack()
     {
-//        hasLyrics = false
+        hasLyrics = false
         executedTrackScript.executeScript("GetCurrentTrack")
         self.track = Track(name: (executedTrackScript.result.atIndex(1)?.stringValue)!, artist: (executedTrackScript.result.atIndex(2)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!)
         hasLyrics = true
