@@ -10,24 +10,11 @@ import Foundation
 import AppKit
 import SwiftUI
 
-class MainViewController: NSViewController
+class MainViewController: NSViewController, ObservableObject
 {
-    var executedTrackScript = ScriptExecutor.init(script: "GetCurrentTrack")
-    
-    var artist: String = ""
-    var track: String = ""
-    var app: String = ""
-    
     override func viewDidAppear()
     {
         super.viewDidAppear()
-        
-        executedTrackScript.executeScript("GetCurrentTrack")
-        if (executedTrackScript.result.numberOfItems == 3)
-        {
-            artist = (executedTrackScript.result.atIndex(1)?.stringValue)!
-            track = (executedTrackScript.result.atIndex(2)?.stringValue)!
-            app = (executedTrackScript.result.atIndex(3)?.stringValue)!
-        }
+        NotificationCenter.default.post(name: Notification.Name("ViewDidAppear"), object: nil)
     }
 }
