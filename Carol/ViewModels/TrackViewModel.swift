@@ -8,13 +8,15 @@
 
 import SwiftUI
 import Foundation
-import TinyNetworking
+import Alamofire
+import SwiftyJSON
 
 class TrackViewModel: ObservableObject
 {
     @Published var track: Track?
     @Published var hasLyrics: Bool = false
     
+    private var lyrics: String?
     private var executedTrackScript = ScriptExecutor.init(script: "GetCurrentTrack")
     
     init()
@@ -37,6 +39,7 @@ class TrackViewModel: ObservableObject
         {
             self.track = Track(name: (executedTrackScript.result.atIndex(1)?.stringValue)!, artist: (executedTrackScript.result.atIndex(2)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!)
             hasLyrics = true
+            getLyrics()
         }
         else if executedTrackScript.result.numberOfItems == 0
         {
@@ -56,6 +59,16 @@ class TrackViewModel: ObservableObject
     
     private func getLyrics()
     {
-        
+        let url = "https://api.lyrics.ovh/v1/\(track!.name)/\(track!.artist)"
+        Alamofire.request(URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(json["lyrics"])
+            case .failure(let error):
+                //TODO: Show error in UI
+                print(error)
+            }
+        }
     }
 }
