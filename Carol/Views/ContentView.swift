@@ -17,13 +17,38 @@ struct ContentView: View {
             {
                 LoadingView().frame(width: 360.0, height: 360.0)
             }
-            VStack
+            else
+            {
+                VStack
                 {
-                    Text("\($viewModel.track.wrappedValue!.name)")
-                    Text("\($viewModel.track.wrappedValue!.artist)")
-                    Text("\($viewModel.track.wrappedValue!.app)")
+                    VStack
+                    {
+                        Text("\($viewModel.track.wrappedValue!.name)")
+                        Text("\($viewModel.track.wrappedValue!.artist)")
+                        Text("\($viewModel.track.wrappedValue!.app)")
+                    }
+                    .padding(16)
+                    ZStack
+                    {
+                        ScrollView()
+                        {
+                            Text("\(viewModel.lyrics!)")
+                                .font(Font.system(size: 21.0))
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.leading)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 16)
+                    }
+                    .frame(width: 328.0, height: 256.0)
+                    .background(Color(NSColor.windowBackgroundColor))
+                    .cornerRadius(8)
+                    .padding(.horizontal, 12)
+                    .padding(.bottom, 12)
+                }
             }
-        }.frame(width: 360.0, height: 360.0)
+        }
+        .frame(width: 360.0, height: 360.0)
     }
 }
 

@@ -16,12 +16,13 @@ class TrackViewModel: ObservableObject
     @Published var track: Track?
     @Published var hasLyrics: Bool = false
     
-    private var lyrics: String?
+    @Published var lyrics: String?
     private var executedTrackScript = ScriptExecutor.init(script: "GetCurrentTrack")
     
     init()
     {
         track = Track(name: "", artist: "", app: "")
+        lyrics = ""
         NotificationCenter.default.addObserver(self, selector: #selector(viewDidAppearNotificationReceived(notification:)), name: Notification.Name("ViewDidAppear"), object: nil)
     }
     
@@ -38,8 +39,10 @@ class TrackViewModel: ObservableObject
         if executedTrackScript.result.numberOfItems == 3
         {
             self.track = Track(name: (executedTrackScript.result.atIndex(1)?.stringValue)!, artist: (executedTrackScript.result.atIndex(2)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!)
-            hasLyrics = true
+            
+            //TODO: Check if Track has actually changed
             getLyrics()
+            hasLyrics = true
         }
         else if executedTrackScript.result.numberOfItems == 0
         {
@@ -64,9 +67,9 @@ class TrackViewModel: ObservableObject
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print(json["lyrics"])
+                self.lyrics = json["lyrics"].stringValue
             case .failure(let error):
-                //TODO: Show error in UI
+                //TODO: Show error in UI or Try Musixmatch
                 print(error)
             }
         }
