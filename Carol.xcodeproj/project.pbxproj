@@ -26,6 +26,7 @@
 		A7E839262369EB4A009BCC7A /* LyricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E839252369EB4A009BCC7A /* LyricsView.swift */; };
 		A7EEFD4C2369ED14004EE0E7 /* GetAlbumArtSpotify.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7EEFD4B2369ED14004EE0E7 /* GetAlbumArtSpotify.txt */; };
 		A7EEFD4E2369ED37004EE0E7 /* GetAlbumArtMusic.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7EEFD4D2369ED37004EE0E7 /* GetAlbumArtMusic.txt */; };
+		A7EEFD512369F61D004EE0E7 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = A7EEFD502369F61D004EE0E7 /* URLImage */; };
 		A7F76872235B75950010C04D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F76871235B75950010C04D /* MainViewController.swift */; };
 		A7F76876235CBA840010C04D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F76875235CBA840010C04D /* Track.swift */; };
 		A7F76878235CBDF70010C04D /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F76877235CBDF70010C04D /* TrackViewModel.swift */; };
@@ -63,6 +64,7 @@
 			files = (
 				A7E8392423675C63009BCC7A /* Alamofire in Frameworks */,
 				A7E8392123675BFF009BCC7A /* SwiftyJSON in Frameworks */,
+				A7EEFD512369F61D004EE0E7 /* URLImage in Frameworks */,
 				A77750F523578225000874C4 /* TinyNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,17 +93,17 @@
 			children = (
 				A73A82662352672C00EA8A40 /* AppDelegate.swift */,
 				A73A82842353895A00EA8A40 /* Controls */,
-				A7F76874235CB8810010C04D /* Models */,
-				A77750F02354EB6C000874C4 /* Scripts */,
 				A73A82792353255B00EA8A40 /* Helpers */,
-				A77750F823579081000874C4 /* Utilities */,
-				A7F76873235CB8640010C04D /* ViewModels */,
 				A73A827E235352A400EA8A40 /* Views */,
+				A7F76873235CB8640010C04D /* ViewModels */,
+				A7F76874235CB8810010C04D /* Models */,
 				A7F76870235B75790010C04D /* View Controllers */,
 				A73A826A2352672C00EA8A40 /* Assets.xcassets */,
 				A73A826F2352672C00EA8A40 /* Main.storyboard */,
 				A73A82722352672C00EA8A40 /* Info.plist */,
 				A73A82732352672C00EA8A40 /* Carol.entitlements */,
+				A77750F02354EB6C000874C4 /* Scripts */,
+				A77750F823579081000874C4 /* Utilities */,
 				A73A826C2352672C00EA8A40 /* Preview Content */,
 			);
 			path = Carol;
@@ -206,6 +208,7 @@
 				A77750F423578225000874C4 /* TinyNetworking */,
 				A7E8392023675BFF009BCC7A /* SwiftyJSON */,
 				A7E8392323675C63009BCC7A /* Alamofire */,
+				A7EEFD502369F61D004EE0E7 /* URLImage */,
 			);
 			productName = Carol;
 			productReference = A73A82632352672C00EA8A40 /* Carol.app */;
@@ -239,6 +242,7 @@
 				A77750F323578225000874C4 /* XCRemoteSwiftPackageReference "tiny-networking" */,
 				A7E8391F23675BFF009BCC7A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				A7E8392223675C63009BCC7A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A7EEFD4F2369F61D004EE0E7 /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = A73A82642352672C00EA8A40 /* Products */;
 			projectDirPath = "";
@@ -509,6 +513,14 @@
 				minimumVersion = 4.9.1;
 			};
 		};
+		A7EEFD4F2369F61D004EE0E7 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.8;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -526,6 +538,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A7E8392223675C63009BCC7A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		A7EEFD502369F61D004EE0E7 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7EEFD4F2369F61D004EE0E7 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

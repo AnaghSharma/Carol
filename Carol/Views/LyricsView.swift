@@ -19,15 +19,17 @@ struct LyricsView: View {
                             .font(Font.system(size: 21.0))
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.leading)
+                            .animation(.default)
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 16)
+                .padding(.leading, 16)
+                .padding(.top, 20)
+                .padding(.trailing, 24)
+                .padding(.bottom, 24)
         }
         .frame(width: 328.0, height: 256.0)
         .background(Color(NSColor.windowBackgroundColor))
         .cornerRadius(8)
-        .padding(.horizontal, 12)
-        .padding(.bottom, 12)
+        
     }
 }
 

@@ -17,7 +17,8 @@ class TrackViewModel: ObservableObject
     @Published var hasLyrics: Bool = false
     
     @Published var lyrics: String?
-    private var executedTrackScript = ScriptExecutor.init(script: "GetCurrentTrack")
+    @Published var albumArt: String?
+    private var executedTrackScript = ScriptExecutor()
     
     init()
     {
@@ -38,10 +39,11 @@ class TrackViewModel: ObservableObject
         
         if executedTrackScript.result.numberOfItems == 3
         {
-            self.track = Track(name: (executedTrackScript.result.atIndex(1)?.stringValue)!, artist: (executedTrackScript.result.atIndex(2)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!)
+            self.track = Track(name: (executedTrackScript.result.atIndex(2)?.stringValue)!, artist: (executedTrackScript.result.atIndex(1)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!)
             
             //TODO: Check if Track has actually changed
-            getLyrics()
+            getLyrics(artist: self.track!.artist, trackName: self.track!.name)
+            albumArt = getAlbumArt(self.track!.app)
             hasLyrics = true
         }
         else if executedTrackScript.result.numberOfItems == 0
@@ -60,9 +62,23 @@ class TrackViewModel: ObservableObject
         }
     }
     
-    private func getLyrics()
+    private func getAlbumArt(_ fromApp: String) -> String
     {
-        let url = "https://api.lyrics.ovh/v1/\(track!.name)/\(track!.artist)"
+        switch fromApp {
+        case "Spotify":
+            executedTrackScript.executeScript("GetAlbumArtSpotify")
+            return executedTrackScript.result.stringValue!
+        case "Music":
+            executedTrackScript.executeScript("GetAlbumArtMusic")
+            return executedTrackScript.result.stringValue!
+        default:
+            return ""
+        }
+    }
+    
+    private func getLyrics(artist: String, trackName: String)
+    {
+        let url = "https://api.lyrics.ovh/v1/\(artist)/\(trackName)"
         Alamofire.request(URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):

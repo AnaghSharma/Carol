@@ -14,11 +14,6 @@ class ScriptExecutor
     var errors: NSDictionary?
     var result = NSAppleEventDescriptor.init()
     
-    init(script: String)
-    {
-        executeScript(script)
-    }
-    
     func executeScript(_ script: String)
     {
         self.script = NSAppleScript(source: ReadFileContent.shared.getFileContent(fileName: script))!
