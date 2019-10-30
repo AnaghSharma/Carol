@@ -32,12 +32,13 @@ struct ContentView: View {
                                 
                     })
                     VisualEffectView(material: NSVisualEffectView.Material.underWindowBackground, blendingMode: NSVisualEffectView.BlendingMode.withinWindow)
-                    VStack(alignment: .leading)
+                    VStack(alignment: .leading, spacing: 16)
                     {
                         MediaInfoView(viewModel: viewModel)
+                            .padding(.top, 4)
                         LyricsView(viewModel: viewModel)
                     }
-                    .padding(.vertical, 16)
+                    
                 }
             }
         }

@@ -12,7 +12,8 @@ import URLImage
 struct MediaInfoView: View {
     @ObservedObject var viewModel = TrackViewModel()
     var body: some View {
-        HStack(alignment: .top, spacing: 8.0) {
+        HStack(alignment: .top, spacing: 8.0)
+        {
             URLImage(URL(string: $viewModel.albumArt.wrappedValue!)!,
                      processors: [ Resize(size: CGSize(width: 80.0, height: 80.0), scale: NSScreen.main!.backingScaleFactor) ],
                      content:  {
@@ -32,6 +33,8 @@ struct MediaInfoView: View {
                         .font(.subheadline)
                         .fontWeight(.semibold)
                         .multilineTextAlignment(.leading)
+                        .lineLimit(1)
+                        .frame(width: 240.0)
                         
                     Text("\($viewModel.track.wrappedValue!.artist)")
                         .font(.caption)
@@ -46,6 +49,7 @@ struct MediaInfoView: View {
                 }
             }
         }
+        .fixedSize()
     }
 }
 
