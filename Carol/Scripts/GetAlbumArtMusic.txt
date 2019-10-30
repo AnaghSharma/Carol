@@ -1,0 +1,6 @@
+-- Return the bytes of the artwork
+
+tell application "Music" to tell artwork 1 of current track
+    return raw data
+end tell
+

@@ -1,0 +1,5 @@
+-- Return the url of the artwork
+
+tell application "Spotify"
+    get artwork url of current track
+end tell
