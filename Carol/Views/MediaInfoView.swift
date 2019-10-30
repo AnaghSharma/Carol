@@ -32,9 +32,7 @@ struct MediaInfoView: View {
                     Text("\($viewModel.track.wrappedValue!.name)")
                         .font(.subheadline)
                         .fontWeight(.semibold)
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(1)
-                        .frame(width: 240.0)
+                        .frame(maxWidth: 240.0)
                         
                     Text("\($viewModel.track.wrappedValue!.artist)")
                         .font(.caption)
