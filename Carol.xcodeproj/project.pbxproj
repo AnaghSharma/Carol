@@ -23,6 +23,7 @@
 		A7E8391223674437009BCC7A /* SecretsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8391123674437009BCC7A /* SecretsReader.swift */; };
 		A7E8392123675BFF009BCC7A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = A7E8392023675BFF009BCC7A /* SwiftyJSON */; };
 		A7E8392423675C63009BCC7A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A7E8392323675C63009BCC7A /* Alamofire */; };
+		A7E839262369EB4A009BCC7A /* LyricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E839252369EB4A009BCC7A /* LyricsView.swift */; };
 		A7F76872235B75950010C04D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F76871235B75950010C04D /* MainViewController.swift */; };
 		A7F76876235CBA840010C04D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F76875235CBA840010C04D /* Track.swift */; };
 		A7F76878235CBDF70010C04D /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F76877235CBDF70010C04D /* TrackViewModel.swift */; };
@@ -45,6 +46,7 @@
 		A77750F623578D99000874C4 /* ScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptExecutor.swift; sourceTree = "<group>"; };
 		A77750F9235790A1000874C4 /* ReadFileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadFileContent.swift; sourceTree = "<group>"; };
 		A7E8391123674437009BCC7A /* SecretsReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsReader.swift; sourceTree = "<group>"; };
+		A7E839252369EB4A009BCC7A /* LyricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsView.swift; sourceTree = "<group>"; };
 		A7F76871235B75950010C04D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A7F76875235CBA840010C04D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		A7F76877235CBDF70010C04D /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				A73A82682352672C00EA8A40 /* ContentView.swift */,
 				A73A8282235378CC00EA8A40 /* LoadingView.swift */,
+				A7E839252369EB4A009BCC7A /* LyricsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				A73A827B2353257600EA8A40 /* StatusBarController.swift in Sources */,
 				A73A82672352672C00EA8A40 /* AppDelegate.swift in Sources */,
 				A73A8283235378CC00EA8A40 /* LoadingView.swift in Sources */,
+				A7E839262369EB4A009BCC7A /* LyricsView.swift in Sources */,
 				A73A82862353897000EA8A40 /* ProgressIndicator.swift in Sources */,
 				A7F76878235CBDF70010C04D /* TrackViewModel.swift in Sources */,
 				A73A827D2353472900EA8A40 /* EventMonitor.swift in Sources */,
