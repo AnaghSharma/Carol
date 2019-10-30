@@ -31,6 +31,7 @@ struct ContentView: View {
                                     .clipped()
                                 
                     })
+                    VisualEffectView(material: NSVisualEffectView.Material.underWindowBackground, blendingMode: NSVisualEffectView.BlendingMode.withinWindow)
                     VStack(alignment: .leading)
                     {
                         MediaInfoView(viewModel: viewModel)

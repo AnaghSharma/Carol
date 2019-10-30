@@ -27,7 +27,7 @@ struct LyricsView: View {
                 .padding(.bottom, 24)
         }
         .frame(width: 328.0, height: 256.0)
-        .background(Color(NSColor.windowBackgroundColor))
+        .background(VisualEffectView(material: NSVisualEffectView.Material.contentBackground, blendingMode: NSVisualEffectView.BlendingMode.withinWindow))
         .cornerRadius(8)
         
     }
