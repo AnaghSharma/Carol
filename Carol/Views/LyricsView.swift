@@ -18,6 +18,7 @@ struct LyricsView: View {
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.leading)
                     .animation(.default)
+                    .frame(maxWidth: 288.0, alignment: .topLeading)
         }
         .padding(.leading, 16)
         .padding(.top, 16)
