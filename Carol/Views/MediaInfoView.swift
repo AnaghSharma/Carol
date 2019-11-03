@@ -54,8 +54,8 @@ struct MediaInfoView: View {
                         }
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .onHover { hovering in
-                        print("Hovered")
+                    .onHover {_ in
+                        self.viewModel.changeCursor(currentCursor: NSCursor.current)
                     }
                 }
             }

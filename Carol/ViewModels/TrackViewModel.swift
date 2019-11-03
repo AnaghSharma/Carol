@@ -19,6 +19,7 @@ class TrackViewModel: ObservableObject
     @Published var lyrics: String?
     @Published var albumArt: String?
     private var executedTrackScript = ScriptExecutor()
+    var cursor: NSCursor = NSCursor.currentSystem!
     
     init()
     {
@@ -109,5 +110,18 @@ class TrackViewModel: ObservableObject
         NSWorkspace.shared.openApplication(at: url,
         configuration: configuration,
         completionHandler: nil)
+    }
+    
+    func changeCursor(currentCursor: NSCursor)
+    {
+        if currentCursor == NSCursor.arrow
+        {
+            cursor = NSCursor.pointingHand
+            cursor.push()
+        }
+        else if currentCursor == NSCursor.pointingHand
+        {
+            cursor.pop()
+        }
     }
 }
