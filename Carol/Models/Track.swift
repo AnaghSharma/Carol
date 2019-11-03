@@ -13,4 +13,5 @@ struct Track
     var name: String
     var artist: String
     var app: String
+    var lyrics: String
 }

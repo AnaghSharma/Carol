@@ -13,7 +13,7 @@ struct LyricsView: View {
     var body: some View {
         ScrollView()
             {
-                Text("\(viewModel.lyrics!)")
+                Text("\($viewModel.track.wrappedValue!.lyrics)")
                     .font(Font.system(size: 21.0))
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.leading)

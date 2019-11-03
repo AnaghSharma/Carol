@@ -15,16 +15,13 @@ class TrackViewModel: ObservableObject
 {
     @Published var track: Track?
     @Published var hasLyrics: Bool = false
-    
-    @Published var lyrics: String?
     @Published var albumArt: String?
     private var executedTrackScript = ScriptExecutor()
     var cursor: NSCursor = NSCursor.currentSystem!
     
     init()
     {
-        track = Track(name: "", artist: "", app: "")
-        lyrics = ""
+        track = Track(name: "", artist: "", app: "", lyrics: "")
         NotificationCenter.default.addObserver(self, selector: #selector(viewDidAppearNotificationReceived(notification:)), name: Notification.Name("ViewDidAppear"), object: nil)
     }
     
@@ -40,7 +37,7 @@ class TrackViewModel: ObservableObject
         
         if executedTrackScript.result.numberOfItems == 3
         {
-            self.track = Track(name: (executedTrackScript.result.atIndex(2)?.stringValue)!, artist: (executedTrackScript.result.atIndex(1)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!)
+            self.track = Track(name: (executedTrackScript.result.atIndex(2)?.stringValue)!, artist: (executedTrackScript.result.atIndex(1)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!, lyrics: "")
             
             //TODO: Check if Track has actually changed
             getLyrics(artist: self.track!.artist, trackName: self.track!.name)
@@ -84,7 +81,7 @@ class TrackViewModel: ObservableObject
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                self.lyrics = json["lyrics"].stringValue
+                self.track!.lyrics = json["lyrics"].stringValue
             case .failure(let error):
                 //TODO: Show error in UI or Try Musixmatch
                 print(error)
