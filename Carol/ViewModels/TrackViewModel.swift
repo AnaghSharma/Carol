@@ -90,4 +90,24 @@ class TrackViewModel: ObservableObject
             }
         }
     }
+    
+    func openInApp(openInAppName: String)
+    {
+        var bundleIdentifier: String = ""
+        if openInAppName == "Spotify"
+        {
+            bundleIdentifier = "com.spotify.client"
+        }
+        else if openInAppName == "Music"
+        {
+            bundleIdentifier = "com.Apple.Music"
+        }
+        
+        guard let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifier) else { return }
+        let configuration = NSWorkspace.OpenConfiguration()
+        
+        NSWorkspace.shared.openApplication(at: url,
+        configuration: configuration,
+        completionHandler: nil)
+    }
 }

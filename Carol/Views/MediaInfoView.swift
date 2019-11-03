@@ -8,6 +8,7 @@
 
 import SwiftUI
 import URLImage
+import AppKit
 
 struct MediaInfoView: View {
     @ObservedObject var viewModel = TrackViewModel()
@@ -39,11 +40,23 @@ struct MediaInfoView: View {
                         .foregroundColor(Color(NSColor.secondaryLabelColor))
                 }
                 HStack {
-                    Text("\($viewModel.track.wrappedValue!.app)")
-                        .font(.caption)
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color("AccentColor"))
-                    
+                    Button(action: {
+                        self.viewModel.openInApp(openInAppName: self.$viewModel.track.wrappedValue!.app)
+                    }) {
+                        HStack(spacing: 4) {
+                            Text("\($viewModel.track.wrappedValue!.app)")
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("AccentColor"))
+                            Image("OpenInIcon")
+                                .resizable()
+                                .frame(width: 12.0, height: 12.0)
+                        }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .onHover { hovering in
+                        print("Hovered")
+                    }
                 }
             }
         }
