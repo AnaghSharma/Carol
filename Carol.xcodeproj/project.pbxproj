@@ -17,7 +17,6 @@
 		A73A8283235378CC00EA8A40 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A8282235378CC00EA8A40 /* LoadingView.swift */; };
 		A73A82862353897000EA8A40 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A82852353897000EA8A40 /* ProgressIndicator.swift */; };
 		A77750F22354ECAE000874C4 /* GetCurrentTrack.txt in Resources */ = {isa = PBXBuildFile; fileRef = A77750F12354ECAE000874C4 /* GetCurrentTrack.txt */; };
-		A77750F523578225000874C4 /* TinyNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A77750F423578225000874C4 /* TinyNetworking */; };
 		A77750F723578D99000874C4 /* ScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77750F623578D99000874C4 /* ScriptExecutor.swift */; };
 		A77750FA235790A1000874C4 /* ReadFileContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77750F9235790A1000874C4 /* ReadFileContent.swift */; };
 		A7E8391223674437009BCC7A /* SecretsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8391123674437009BCC7A /* SecretsReader.swift */; };
@@ -69,7 +68,6 @@
 				A7E8392423675C63009BCC7A /* Alamofire in Frameworks */,
 				A7E8392123675BFF009BCC7A /* SwiftyJSON in Frameworks */,
 				A7EEFD512369F61D004EE0E7 /* URLImage in Frameworks */,
-				A77750F523578225000874C4 /* TinyNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +209,6 @@
 			);
 			name = Carol;
 			packageProductDependencies = (
-				A77750F423578225000874C4 /* TinyNetworking */,
 				A7E8392023675BFF009BCC7A /* SwiftyJSON */,
 				A7E8392323675C63009BCC7A /* Alamofire */,
 				A7EEFD502369F61D004EE0E7 /* URLImage */,
@@ -245,7 +242,6 @@
 			);
 			mainGroup = A73A825A2352672B00EA8A40;
 			packageReferences = (
-				A77750F323578225000874C4 /* XCRemoteSwiftPackageReference "tiny-networking" */,
 				A7E8391F23675BFF009BCC7A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				A7E8392223675C63009BCC7A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A7EEFD4F2369F61D004EE0E7 /* XCRemoteSwiftPackageReference "url-image" */,
@@ -497,14 +493,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A77750F323578225000874C4 /* XCRemoteSwiftPackageReference "tiny-networking" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/objcio/tiny-networking";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		A7E8391F23675BFF009BCC7A /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
@@ -532,11 +520,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A77750F423578225000874C4 /* TinyNetworking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A77750F323578225000874C4 /* XCRemoteSwiftPackageReference "tiny-networking" */;
-			productName = TinyNetworking;
-		};
 		A7E8392023675BFF009BCC7A /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A7E8391F23675BFF009BCC7A /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

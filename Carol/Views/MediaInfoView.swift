@@ -32,8 +32,8 @@ struct MediaInfoView: View {
                     Text("\($viewModel.track.wrappedValue!.name)")
                         .font(.subheadline)
                         .fontWeight(.semibold)
-                        .frame(maxWidth: 240.0)
-                        
+                        .lineLimit(1)
+                        .frame(maxWidth: 248, alignment: Alignment.leading)
                     Text("\($viewModel.track.wrappedValue!.artist)")
                         .font(.caption)
                         .foregroundColor(Color(NSColor.secondaryLabelColor))
@@ -47,7 +47,6 @@ struct MediaInfoView: View {
                 }
             }
         }
-        .fixedSize()
     }
 }
 
