@@ -16,12 +16,21 @@ class TrackViewModel: ObservableObject
     @Published var track: Track?
     @Published var hasLyrics: Bool = false
     @Published var albumArt: String?
+    
+    var lyricsFinder: LyricsFinder
+    
+    enum LyricsService {
+        case LyricsOvh
+        case MusixMatch
+    }
+    
     private var executedTrackScript = ScriptExecutor()
     var cursor: NSCursor = NSCursor.currentSystem!
     
     init()
     {
         track = Track(name: "", artist: "", app: "", lyrics: "")
+        lyricsFinder = LyricsFinder()
         NotificationCenter.default.addObserver(self, selector: #selector(viewDidAppearNotificationReceived(notification:)), name: Notification.Name("ViewDidAppear"), object: nil)
     }
     
@@ -37,10 +46,10 @@ class TrackViewModel: ObservableObject
         
         if executedTrackScript.result.numberOfItems == 3
         {
-            self.track = Track(name: (executedTrackScript.result.atIndex(2)?.stringValue)!, artist: (executedTrackScript.result.atIndex(1)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!, lyrics: "")
+            self.track = Track(name: (executedTrackScript.result.atIndex(2)?.stringValue)!, artist: (executedTrackScript.result.atIndex(1)?.stringValue)!, app: (executedTrackScript.result.atIndex(3)?.stringValue)!, lyrics: "Calling the wordsmith...")
             
             //TODO: Check if Track has actually changed
-            getLyrics(artist: self.track!.artist, trackName: self.track!.name)
+            getLyrics(artist: self.track!.artist, trackName: self.track!.name, lyricsService: .LyricsOvh)
             albumArt = getAlbumArt(self.track!.app)
             hasLyrics = true
         }
@@ -74,7 +83,7 @@ class TrackViewModel: ObservableObject
         }
     }
     
-    private func getLyrics(artist: String, trackName: String)
+    private func getLyrics(artist: String, trackName: String, lyricsService: LyricsService)
     {
         let url = "https://api.lyrics.ovh/v1/\(artist)/\(trackName)"
         Alamofire.request(URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, method: .get).validate().responseJSON { response in
@@ -84,7 +93,8 @@ class TrackViewModel: ObservableObject
                 self.track!.lyrics = json["lyrics"].stringValue
             case .failure(let error):
                 //TODO: Show error in UI or Try Musixmatch
-                print(error)
+                // print(error)
+                self.getLyrics(artist: artist, trackName: trackName)
             }
         }
     }
@@ -119,6 +129,46 @@ class TrackViewModel: ObservableObject
         else if currentCursor == NSCursor.pointingHand
         {
             cursor.pop()
+        }
+    }
+    
+    public func getLyrics(artist: String, trackName: String)
+    {
+        let url = "https://api.musixmatch.com/ws/1.1/track.search?q_track=\(trackName)&q_artist=\(artist)&apikey="
+        var trackId = 0
+        Alamofire.request(URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                trackId = json["message"]["body"]["track_list"][0]["track"]["track_id"].intValue
+            case .failure(let error):
+                print(error)
+            }
+            if(trackId != 0)
+            {
+                self.getLyricsFromTrackId(artist: artist, trackName: trackName, trackId: trackId)
+            }
+            else
+            {
+                self.hasLyrics = false
+            }
+        }
+    }
+    
+    private func getLyricsFromTrackId(artist: String, trackName: String, trackId: Int)
+    {
+        let url = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=\(trackId)&apikey="
+        Alamofire.request(URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let uneditedLyrics = json["message"]["body"]["lyrics"]["lyrics_body"].stringValue
+                //print(uneditedLyrics)
+                self.track!.lyrics = String(uneditedLyrics.split(separator: String.Element("*"), maxSplits: 1, omittingEmptySubsequences: true)[0])
+                //self.track!.lyrics = uneditedLyrics.replacingOccurrences(of: "******* This Lyrics is NOT for Commercial use *******", with: "Beta Lyrics")
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }

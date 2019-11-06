@@ -12,19 +12,19 @@ struct LyricsView: View {
     @ObservedObject var viewModel = TrackViewModel()
     var body: some View {
         ScrollView()
-            {
+        {
                 Text("\($viewModel.track.wrappedValue!.lyrics)")
                     .font(Font.system(size: 21.0))
                     .fontWeight(.semibold)
-                    .multilineTextAlignment(.leading)
                     .animation(.default)
+                    .multilineTextAlignment(.leading)
                     .frame(maxWidth: 288.0, alignment: .topLeading)
         }
         .padding(.leading, 16)
         .padding(.top, 16)
         .padding(.trailing, 24)
         .padding(.bottom, 32)
-        .frame(width: 328.0, height: 244.0)
+        .frame(width: 328.0, height: 240.0)
         .fixedSize()
         .background(VisualEffectView(material: NSVisualEffectView.Material.contentBackground, blendingMode: NSVisualEffectView.BlendingMode.withinWindow))
         .cornerRadius(8)

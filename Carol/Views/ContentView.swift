@@ -17,6 +17,7 @@ struct ContentView: View {
             if (!$viewModel.hasLyrics.wrappedValue)
             {
                 LoadingView()
+                    .animation(.default)
             }
             else
             {
