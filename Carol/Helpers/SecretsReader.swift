@@ -8,17 +8,12 @@
 
 import Foundation
 
-public class SecretsReader
+class SecretsReader
 {
-    private static var secrets: Any?
+    static let shared = SecretsReader()
     
-    private static func getSecretKeys() -> String
+    func getSecretKeys() -> String
     {
-        return ReadFileContent.shared.getFileContent(fileName: "Secrets.json")
-    }
-    
-    public static func getSecrets()
-    {
-        
+        return ReadFileContent.shared.getFileContent(fileName: "Secrets")
     }
 }

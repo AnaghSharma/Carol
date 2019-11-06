@@ -20,6 +20,7 @@
 		A77750F723578D99000874C4 /* ScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77750F623578D99000874C4 /* ScriptExecutor.swift */; };
 		A77750FA235790A1000874C4 /* ReadFileContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77750F9235790A1000874C4 /* ReadFileContent.swift */; };
 		A7E3F4EE23709EA800892124 /* LyricsFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E3F4ED23709EA800892124 /* LyricsFinder.swift */; };
+		A7E3F4F223733E8500892124 /* Secrets.txt in Resources */ = {isa = PBXBuildFile; fileRef = A7E3F4F123733E8500892124 /* Secrets.txt */; };
 		A7E8391223674437009BCC7A /* SecretsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E8391123674437009BCC7A /* SecretsReader.swift */; };
 		A7E8392123675BFF009BCC7A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = A7E8392023675BFF009BCC7A /* SwiftyJSON */; };
 		A7E8392423675C63009BCC7A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A7E8392323675C63009BCC7A /* Alamofire */; };
@@ -51,6 +52,7 @@
 		A77750F623578D99000874C4 /* ScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptExecutor.swift; sourceTree = "<group>"; };
 		A77750F9235790A1000874C4 /* ReadFileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadFileContent.swift; sourceTree = "<group>"; };
 		A7E3F4ED23709EA800892124 /* LyricsFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsFinder.swift; sourceTree = "<group>"; };
+		A7E3F4F123733E8500892124 /* Secrets.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = Secrets.txt; path = ../Secrets.txt; sourceTree = "<group>"; };
 		A7E8391123674437009BCC7A /* SecretsReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsReader.swift; sourceTree = "<group>"; };
 		A7E839252369EB4A009BCC7A /* LyricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsView.swift; sourceTree = "<group>"; };
 		A7EEFD4B2369ED14004EE0E7 /* GetAlbumArtSpotify.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetAlbumArtSpotify.txt; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				A73A82732352672C00EA8A40 /* Carol.entitlements */,
 				A77750F02354EB6C000874C4 /* Scripts */,
 				A77750F823579081000874C4 /* Utilities */,
+				A7E3F4F123733E8500892124 /* Secrets.txt */,
 				A73A826C2352672C00EA8A40 /* Preview Content */,
 			);
 			path = Carol;
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A73A82712352672C00EA8A40 /* Main.storyboard in Resources */,
+				A7E3F4F223733E8500892124 /* Secrets.txt in Resources */,
 				A7EEFD4E2369ED37004EE0E7 /* GetAlbumArtMusic.txt in Resources */,
 				A73A826E2352672C00EA8A40 /* Preview Assets.xcassets in Resources */,
 				A77750F22354ECAE000874C4 /* GetCurrentTrack.txt in Resources */,

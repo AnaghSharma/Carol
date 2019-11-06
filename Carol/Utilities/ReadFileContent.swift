@@ -11,8 +11,8 @@ import Foundation
 class ReadFileContent
 {
     static let shared = ReadFileContent()
-    var filePath: String?
-    var contents: String?
+    private var filePath: String?
+    private var contents: String?
     
     func getFileContent(fileName: String) -> String
     {

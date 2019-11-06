@@ -17,7 +17,8 @@ class TrackViewModel: ObservableObject
     @Published var hasLyrics: Bool = false
     @Published var albumArt: String?
     
-    var lyricsFinder: LyricsFinder
+    private var lyricsFinder: LyricsFinder
+    private let apiKey: String
     
     enum LyricsService {
         case LyricsOvh
@@ -31,6 +32,7 @@ class TrackViewModel: ObservableObject
     {
         track = Track(name: "", artist: "", app: "", lyrics: "")
         lyricsFinder = LyricsFinder()
+        apiKey = SecretsReader.shared.getSecretKeys()
         NotificationCenter.default.addObserver(self, selector: #selector(viewDidAppearNotificationReceived(notification:)), name: Notification.Name("ViewDidAppear"), object: nil)
     }
     
@@ -134,7 +136,7 @@ class TrackViewModel: ObservableObject
     
     public func getLyrics(artist: String, trackName: String)
     {
-        let url = "https://api.musixmatch.com/ws/1.1/track.search?q_track=\(trackName)&q_artist=\(artist)&apikey="
+        let url = "https://api.musixmatch.com/ws/1.1/track.search?q_track=\(trackName)&q_artist=\(artist)&apikey=\(apiKey)"
         var trackId = 0
         Alamofire.request(URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, method: .get).validate().responseJSON { response in
             switch response.result {
@@ -157,7 +159,7 @@ class TrackViewModel: ObservableObject
     
     private func getLyricsFromTrackId(artist: String, trackName: String, trackId: Int)
     {
-        let url = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=\(trackId)&apikey="
+        let url = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=\(trackId)&apikey=\(apiKey)"
         Alamofire.request(URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
