@@ -9,10 +9,11 @@
 import SwiftUI
 
 struct LoadingView: View {
+    var loadingText: String
     var body: some View {
         VStack(spacing: 16) {
             ProgressIndicator(isAnimating: true)
-            Text("Loading...")
+            Text("\(loadingText)")
                 .font(.footnote)
         }
     }
@@ -20,6 +21,6 @@ struct LoadingView: View {
 
 struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingView()
+        LoadingView(loadingText: "Loading")
     }
 }

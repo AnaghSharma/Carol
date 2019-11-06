@@ -16,9 +16,9 @@ struct LyricsView: View {
                 Text("\($viewModel.track.wrappedValue!.lyrics)")
                     .font(Font.system(size: 21.0))
                     .fontWeight(.semibold)
-                    .animation(.default)
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: 288.0, alignment: .topLeading)
+                    .animation(.easeIn)
         }
         .padding(.leading, 16)
         .padding(.top, 16)

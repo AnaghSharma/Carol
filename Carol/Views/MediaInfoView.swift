@@ -24,8 +24,9 @@ struct MediaInfoView: View {
                             .clipped()
                         
             })
-                .cornerRadius(2.0)
+                .cornerRadius(4.0)
                 .frame(height: 72.0)
+                .animation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0.2))
             VStack(alignment: .leading, spacing: 20.0)
             {
                 VStack(alignment: .leading, spacing: 2.0)
@@ -59,6 +60,7 @@ struct MediaInfoView: View {
                     }
                 }
             }
+            .animation(.easeInOut)
         }
     }
 }

@@ -53,7 +53,6 @@ class TrackViewModel: ObservableObject
             //TODO: Check if Track has actually changed
             getLyrics(artist: self.track!.artist, trackName: self.track!.name, lyricsService: .LyricsOvh)
             albumArt = getAlbumArt(self.track!.app)
-            hasLyrics = true
         }
         else if executedTrackScript.result.numberOfItems == 0
         {
@@ -92,6 +91,7 @@ class TrackViewModel: ObservableObject
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
+                self.hasLyrics = true
                 self.track!.lyrics = json["lyrics"].stringValue
             case .failure(let error):
                 //TODO: Show error in UI or Try Musixmatch
@@ -165,6 +165,7 @@ class TrackViewModel: ObservableObject
             case .success(let value):
                 let json = JSON(value)
                 let uneditedLyrics = json["message"]["body"]["lyrics"]["lyrics_body"].stringValue
+                self.hasLyrics = true
                 //print(uneditedLyrics)
                 self.track!.lyrics = String(uneditedLyrics.split(separator: String.Element("*"), maxSplits: 1, omittingEmptySubsequences: true)[0])
                 //self.track!.lyrics = uneditedLyrics.replacingOccurrences(of: "******* This Lyrics is NOT for Commercial use *******", with: "Beta Lyrics")
