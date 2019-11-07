@@ -17,6 +17,7 @@ class TrackViewModel: ObservableObject
     @Published var hasLyrics: Bool = false
     @Published var albumArt: String?
     
+    @Published var state: States
     private var lyricsFinder: LyricsFinder
     private let apiKey: String
     
@@ -31,6 +32,7 @@ class TrackViewModel: ObservableObject
     init()
     {
         track = Track(name: "", artist: "", app: "", lyrics: "")
+        state = States.loading
         lyricsFinder = LyricsFinder()
         apiKey = SecretsReader.shared.getSecretKeys()
         NotificationCenter.default.addObserver(self, selector: #selector(viewDidAppearNotificationReceived(notification:)), name: Notification.Name("ViewDidAppear"), object: nil)
@@ -43,7 +45,7 @@ class TrackViewModel: ObservableObject
     
     private func setTrack()
     {
-        hasLyrics = false
+        state = States.loading
         executedTrackScript.executeScript("GetCurrentTrack")
         
         if executedTrackScript.result.numberOfItems == 3
@@ -91,7 +93,7 @@ class TrackViewModel: ObservableObject
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                self.hasLyrics = true
+                self.state = States.content
                 self.track!.lyrics = json["lyrics"].stringValue
             case .failure(let error):
                 //TODO: Show error in UI or Try Musixmatch
@@ -152,7 +154,7 @@ class TrackViewModel: ObservableObject
             }
             else
             {
-                self.hasLyrics = false
+                self.state = States.empty
             }
         }
     }
@@ -165,7 +167,7 @@ class TrackViewModel: ObservableObject
             case .success(let value):
                 let json = JSON(value)
                 let uneditedLyrics = json["message"]["body"]["lyrics"]["lyrics_body"].stringValue
-                self.hasLyrics = true
+                self.state = States.content
                 //print(uneditedLyrics)
                 self.track!.lyrics = String(uneditedLyrics.split(separator: String.Element("*"), maxSplits: 1, omittingEmptySubsequences: true)[0])
                 //self.track!.lyrics = uneditedLyrics.replacingOccurrences(of: "******* This Lyrics is NOT for Commercial use *******", with: "Beta Lyrics")

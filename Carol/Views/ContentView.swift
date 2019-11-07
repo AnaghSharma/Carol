@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         Group {
-            if (!$viewModel.hasLyrics.wrappedValue)
+            if ($viewModel.state.wrappedValue == States.loading)
             {
                 LoadingView(loadingText: "Calling the wordsmiths")
                     .animation(.default)
