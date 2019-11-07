@@ -61,13 +61,13 @@ class TrackViewModel: ObservableObject
             switch executedTrackScript.result.stringValue
             {
             case "1":
-                print("Nothing playing")
+                state = States.nomusic
             case "2":
-                print("No music app is running")
+                state = States.noapp
             case "3":
-                print("Multiple tracks playing")
+                state = States.multiplay
             default:
-                print("Could not find the track")
+                state = States.empty
             }
         }
     }

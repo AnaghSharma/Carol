@@ -21,25 +21,31 @@ struct ContentView: View {
             }
             else
             {
-                ZStack
+                if($viewModel.state.wrappedValue == States.content)
                 {
-                    URLImage(URL(string: $viewModel.albumArt.wrappedValue!)!,
-                             processors: [ Resize(size: CGSize(width: 360.0, height: 360.0), scale: NSScreen.main!.backingScaleFactor) ],
-                             content:  {
-                                $0.image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipped()
-                                
-                    })
-                    VisualEffectView(material: NSVisualEffectView.Material.underWindowBackground, blendingMode: NSVisualEffectView.BlendingMode.withinWindow)
-                    VStack(alignment: .leading, spacing: 16)
+                    ZStack
                     {
-                        MediaInfoView(viewModel: viewModel)
-                            .padding(.top, 4)
-                        LyricsView(viewModel: viewModel)
+                        URLImage(URL(string: $viewModel.albumArt.wrappedValue!)!,
+                                 processors: [ Resize(size: CGSize(width: 360.0, height: 360.0), scale: NSScreen.main!.backingScaleFactor) ],
+                                 content:  {
+                                    $0.image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipped()
+                                    
+                        })
+                        VisualEffectView(material: NSVisualEffectView.Material.underWindowBackground, blendingMode: NSVisualEffectView.BlendingMode.withinWindow)
+                        VStack(alignment: .leading, spacing: 16)
+                        {
+                            MediaInfoView(viewModel: viewModel)
+                                .padding(.top, 4)
+                            LyricsView(viewModel: viewModel)
+                        }
                     }
-                    
+                }
+                else if($viewModel.state.wrappedValue == States.noapp)
+                {
+                    IllustratedView(illustrationImageName: "IllustrationNoApp", illustrationText: "No music app is running. Play some music from one of the apps.")
                 }
             }
         }
