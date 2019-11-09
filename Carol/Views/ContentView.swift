@@ -43,9 +43,21 @@ struct ContentView: View {
                         }
                     }
                 }
+                else if($viewModel.state.wrappedValue == States.empty)
+                {
+                    IllustratedView(illustrationImageName: "IllustrationEmpty", illustrationText: "Oops, could not find the lyrics of this track. Please try again.")
+                }
                 else if($viewModel.state.wrappedValue == States.noapp)
                 {
                     IllustratedView(illustrationImageName: "IllustrationNoApp", illustrationText: "No music app is running. Play some music from one of the apps.")
+                }
+                else if($viewModel.state.wrappedValue == States.nomusic)
+                {
+                    IllustratedView(illustrationImageName: "IllustrationNoMusic", illustrationText: "No track is playing. Play something from your awesome collection.")
+                }
+                else if($viewModel.state.wrappedValue == States.multiplay)
+                {
+                    IllustratedView(illustrationImageName: "IllustrationMultiplay", illustrationText: "Playing two songs at a time, living in 2050.")
                 }
             }
         }

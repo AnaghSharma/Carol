@@ -9,10 +9,11 @@
 import Foundation
 
 enum States {
+    case nointernet
     case loading
     case content
-    case nomusic
-    case noapp
-    case multiplay
     case empty
+    case noapp
+    case nomusic
+    case multiplay
 }

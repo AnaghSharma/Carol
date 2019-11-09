@@ -95,9 +95,7 @@ class TrackViewModel: ObservableObject
                 let json = JSON(value)
                 self.state = States.content
                 self.track!.lyrics = json["lyrics"].stringValue
-            case .failure(let error):
-                //TODO: Show error in UI or Try Musixmatch
-                // print(error)
+            case .failure(_):
                 self.getLyrics(artist: artist, trackName: trackName)
             }
         }
@@ -168,11 +166,9 @@ class TrackViewModel: ObservableObject
                 let json = JSON(value)
                 let uneditedLyrics = json["message"]["body"]["lyrics"]["lyrics_body"].stringValue
                 self.state = States.content
-                //print(uneditedLyrics)
                 self.track!.lyrics = String(uneditedLyrics.split(separator: String.Element("*"), maxSplits: 1, omittingEmptySubsequences: true)[0])
-                //self.track!.lyrics = uneditedLyrics.replacingOccurrences(of: "******* This Lyrics is NOT for Commercial use *******", with: "Beta Lyrics")
-            case .failure(let error):
-                print(error)
+            case .failure(_):
+                self.state = States.empty
             }
         }
     }
