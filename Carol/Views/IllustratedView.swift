@@ -24,6 +24,8 @@ struct IllustratedView: View {
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: 224)
         }
+        .frame(width: 360.0, height: 360.0)
+        .background(VisualEffectView(material: NSVisualEffectView.Material.contentBackground, blendingMode: NSVisualEffectView.BlendingMode.withinWindow))
     }
 }
 

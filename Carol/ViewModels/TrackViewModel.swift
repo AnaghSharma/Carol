@@ -10,6 +10,7 @@ import SwiftUI
 import Foundation
 import Alamofire
 import SwiftyJSON
+import Network
 
 class TrackViewModel: ObservableObject
 {
@@ -28,6 +29,7 @@ class TrackViewModel: ObservableObject
     
     private var executedTrackScript = ScriptExecutor()
     var cursor: NSCursor = NSCursor.currentSystem!
+    let monitor = NWPathMonitor()
     
     init()
     {
@@ -35,12 +37,30 @@ class TrackViewModel: ObservableObject
         state = States.loading
         lyricsFinder = LyricsFinder()
         apiKey = SecretsReader.shared.getSecretKeys()
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied
+            {
+                self.state = States.loading
+            }
+            else if path.status == .unsatisfied
+            {
+                self.state = States.nointernet
+            }
+        }
+        monitor.start(queue: DispatchQueue.main)
         NotificationCenter.default.addObserver(self, selector: #selector(viewDidAppearNotificationReceived(notification:)), name: Notification.Name("ViewDidAppear"), object: nil)
     }
     
     @objc private func viewDidAppearNotificationReceived(notification: Notification)
     {
-        setTrack()
+        if state == States.nointernet
+        {
+            
+        }
+        else
+        {
+            setTrack()
+        }
     }
     
     private func setTrack()
