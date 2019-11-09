@@ -144,11 +144,11 @@
 		A73A827E235352A400EA8A40 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A73A82682352672C00EA8A40 /* ContentView.swift */,
 				A73A8282235378CC00EA8A40 /* LoadingView.swift */,
-				A7E839252369EB4A009BCC7A /* LyricsView.swift */,
 				A7EEFD52236A0AE5004EE0E7 /* MediaInfoView.swift */,
+				A7E839252369EB4A009BCC7A /* LyricsView.swift */,
 				A79759BC2374975A009EAFB9 /* IllustratedView.swift */,
+				A73A82682352672C00EA8A40 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
