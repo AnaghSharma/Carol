@@ -100,7 +100,14 @@ class TrackViewModel: ObservableObject
             return executedTrackScript.result.stringValue!
         case "Music":
             executedTrackScript.executeScript("GetAlbumArtMusic")
-            return executedTrackScript.result.stringValue!
+            if executedTrackScript.errors?.count == 0
+            {
+                return executedTrackScript.result.stringValue!
+            }
+            else
+            {
+                return "https://www.apple.com/v/apple-music/l/images/shared/og_image__pvk21jd9bj22.png?201911010950"
+            }
         default:
             return ""
         }
