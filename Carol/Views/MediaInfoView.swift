@@ -27,7 +27,7 @@ struct MediaInfoView: View {
                 .cornerRadius(4.0)
                 .frame(height: 72.0)
                 .animation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0.2))
-            VStack(alignment: .leading, spacing: 20.0)
+            VStack(alignment: .leading)
             {
                 VStack(alignment: .leading, spacing: 2.0)
                 {
@@ -40,26 +40,44 @@ struct MediaInfoView: View {
                         .font(.caption)
                         .foregroundColor(Color(NSColor.secondaryLabelColor))
                 }
-                HStack {
-                    Button(action: {
-                        self.viewModel.openInApp(openInAppName: self.$viewModel.track.wrappedValue!.app)
-                    }) {
-                        HStack(spacing: 4) {
-                            Text("\($viewModel.track.wrappedValue!.app)")
-                                .font(.caption)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("AccentColor"))
-                            Image("OpenInIcon")
-                                .resizable()
-                                .frame(width: 12.0, height: 12.0)
+                Spacer()
+                HStack(alignment: .bottom) {
+                    HStack {
+                        Button(action: {
+                            self.viewModel.openInApp(openInAppName: self.$viewModel.track.wrappedValue!.app)
+                        }) {
+                            HStack(spacing: 4) {
+                                Text("\($viewModel.track.wrappedValue!.app)")
+                                    .font(.caption)
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("AccentColor"))
+                                Image("OpenInIcon")
+                                    .resizable()
+                                    .frame(width: 12.0, height: 12.0)
+                            }
                         }
+                        .buttonStyle(PlainButtonStyle())
+                        .onHover {_ in
+                            self.viewModel.changeCursor(currentCursor: NSCursor.current)
+                        }
+                    }
+                    Spacer()
+                    Button(action: {
+                        
+                    }) {
+                            Image("SettingsIcon")
+                                .resizable()
+                                .frame(width: 20.0, height: 20.0)
+                                .opacity(0.8)
                     }
                     .buttonStyle(PlainButtonStyle())
                     .onHover {_ in
                         self.viewModel.changeCursor(currentCursor: NSCursor.current)
                     }
                 }
+                .frame(maxWidth: 248)
             }
+            .frame(height: 72)
             .animation(.easeInOut)
         }
     }
