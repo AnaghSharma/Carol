@@ -30,6 +30,9 @@ class TrackViewModel: ObservableObject
     private var executedTrackScript = ScriptExecutor()
     var cursor: NSCursor = NSCursor.currentSystem!
     let monitor = NWPathMonitor()
+    let settingsMenu = NSMenu()
+    var window: NSWindow!
+    let aboutView = AboutView()
     
     init()
     {
@@ -37,6 +40,16 @@ class TrackViewModel: ObservableObject
         state = States.loading
         lyricsFinder = LyricsFinder()
         apiKey = SecretsReader.shared.getSecretKeys()
+        settingsMenu.addItem(withTitle: "About", action: #selector(aboutMenuItemClicked), keyEquivalent: "").target = self
+        settingsMenu.addItem(NSMenuItem.separator())
+        settingsMenu.addItem(withTitle: "Quit", action: #selector(quitMenuItemClicked), keyEquivalent: "q").target = self
+        window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            backing: .buffered, defer: false)
+        window.center()
+        window.setFrameAutosaveName("About")
+        window.contentView = NSHostingView(rootView: aboutView)
         monitor.pathUpdateHandler = { path in
             if path.status == .satisfied
             {
@@ -198,5 +211,22 @@ class TrackViewModel: ObservableObject
                 self.state = States.empty
             }
         }
+    }
+    
+    func settingsButtonClicked()
+    {
+        let sender = NSButton()
+        NSMenu.popUpContextMenu(settingsMenu, with: NSApplication.shared.currentEvent!, for: sender)
+    }
+    
+    @objc func aboutMenuItemClicked()
+    {
+        window.makeKeyAndOrderFront(nil)
+        window.isReleasedWhenClosed = false
+    }
+    
+    @objc func quitMenuItemClicked()
+    {
+        NSApplication.shared.terminate(self)
     }
 }

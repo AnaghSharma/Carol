@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A70A17B12381C9DB00BC44B9 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70A17B02381C9DB00BC44B9 /* AboutView.swift */; };
 		A73A82672352672C00EA8A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A82662352672C00EA8A40 /* AppDelegate.swift */; };
 		A73A82692352672C00EA8A40 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73A82682352672C00EA8A40 /* ContentView.swift */; };
 		A73A826B2352672C00EA8A40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A73A826A2352672C00EA8A40 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A70A17B02381C9DB00BC44B9 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		A73A82632352672C00EA8A40 /* Carol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73A82662352672C00EA8A40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A73A82682352672C00EA8A40 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				A7E839252369EB4A009BCC7A /* LyricsView.swift */,
 				A79759BC2374975A009EAFB9 /* IllustratedView.swift */,
 				A73A82682352672C00EA8A40 /* ContentView.swift */,
+				A70A17B02381C9DB00BC44B9 /* AboutView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				A77750FA235790A1000874C4 /* ReadFileContent.swift in Sources */,
 				A7983BDC23734F8200E6B5C5 /* States.swift in Sources */,
 				A7E8391223674437009BCC7A /* SecretsReader.swift in Sources */,
+				A70A17B12381C9DB00BC44B9 /* AboutView.swift in Sources */,
 				A79759BD2374975A009EAFB9 /* IllustratedView.swift in Sources */,
 				A77750F723578D99000874C4 /* ScriptExecutor.swift in Sources */,
 			);

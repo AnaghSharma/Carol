@@ -63,7 +63,7 @@ struct MediaInfoView: View {
                     }
                     Spacer()
                     Button(action: {
-                        
+                        self.viewModel.settingsButtonClicked()
                     }) {
                             Image("SettingsIcon")
                                 .resizable()
