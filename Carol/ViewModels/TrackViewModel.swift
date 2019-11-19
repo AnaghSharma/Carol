@@ -142,6 +142,45 @@ class TrackViewModel: ObservableObject
         }
     }
     
+    private func getLyrics(artist: String, trackName: String)
+    {
+        let url = "https://api.musixmatch.com/ws/1.1/track.search?q_track=\(trackName)&q_artist=\(artist)&apikey=\(apiKey.trimmingCharacters(in: .newlines))"
+        var trackId = 0
+        Alamofire.request(URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                trackId = json["message"]["body"]["track_list"][0]["track"]["track_id"].intValue
+            case .failure(let error):
+                print(error)
+            }
+            if(trackId != 0)
+            {
+                self.getLyricsFromTrackId(artist: artist, trackName: trackName, trackId: trackId)
+            }
+            else
+            {
+                self.state = States.empty
+            }
+        }
+    }
+    
+    private func getLyricsFromTrackId(artist: String, trackName: String, trackId: Int)
+    {
+        let url = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=\(trackId)&apikey=\(apiKey.trimmingCharacters(in: .newlines))"
+        Alamofire.request(URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let uneditedLyrics = json["message"]["body"]["lyrics"]["lyrics_body"].stringValue
+                self.state = States.content
+                self.track!.lyrics = String(uneditedLyrics.split(separator: String.Element("*"), maxSplits: 1, omittingEmptySubsequences: true)[0])
+            case .failure(_):
+                self.state = States.empty
+            }
+        }
+    }
+    
     func openInApp(openInAppName: String)
     {
         var bundleIdentifier: String = ""
@@ -172,45 +211,6 @@ class TrackViewModel: ObservableObject
         else if currentCursor == NSCursor.pointingHand
         {
             cursor.pop()
-        }
-    }
-    
-    public func getLyrics(artist: String, trackName: String)
-    {
-        let url = "https://api.musixmatch.com/ws/1.1/track.search?q_track=\(trackName)&q_artist=\(artist)&apikey=\(apiKey)"
-        var trackId = 0
-        Alamofire.request(URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                trackId = json["message"]["body"]["track_list"][0]["track"]["track_id"].intValue
-            case .failure(let error):
-                print(error)
-            }
-            if(trackId != 0)
-            {
-                self.getLyricsFromTrackId(artist: artist, trackName: trackName, trackId: trackId)
-            }
-            else
-            {
-                self.state = States.empty
-            }
-        }
-    }
-    
-    private func getLyricsFromTrackId(artist: String, trackName: String, trackId: Int)
-    {
-        let url = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=\(trackId)&apikey=\(apiKey)"
-        Alamofire.request(URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                let uneditedLyrics = json["message"]["body"]["lyrics"]["lyrics_body"].stringValue
-                self.state = States.content
-                self.track!.lyrics = String(uneditedLyrics.split(separator: String.Element("*"), maxSplits: 1, omittingEmptySubsequences: true)[0])
-            case .failure(_):
-                self.state = States.empty
-            }
         }
     }
     
