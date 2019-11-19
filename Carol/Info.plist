@@ -40,7 +40,7 @@
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
 	<key>NSAppleEventsUsageDescription</key>
-	<string>Need Permission</string>
+	<string>Carol needs permission to access this app in order to identify the currently playing song and show its lyrics.</string>
 	<key>LSUIElement</key>
 	<true/>
 </dict>

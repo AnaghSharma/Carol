@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AboutView: View {
     var body: some View {
-        VStack (spacing: 36.0) {
+        VStack (spacing: 24.0) {
             VStack(alignment: .center, spacing: 36.0)
             {
                 Image("AboutIcon")

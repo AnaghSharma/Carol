@@ -44,11 +44,12 @@ class TrackViewModel: ObservableObject
         settingsMenu.addItem(NSMenuItem.separator())
         settingsMenu.addItem(withTitle: "Quit", action: #selector(quitMenuItemClicked), keyEquivalent: "q").target = self
         window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            contentRect: NSRect(x: 0, y: 0, width: 360, height: 480),
+            styleMask: [.titled, .closable, .fullSizeContentView, ],
             backing: .buffered, defer: false)
         window.center()
         window.setFrameAutosaveName("About")
+        window.titlebarAppearsTransparent = true
         window.contentView = NSHostingView(rootView: aboutView)
         monitor.pathUpdateHandler = { path in
             if path.status == .satisfied
