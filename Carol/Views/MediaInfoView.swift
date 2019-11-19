@@ -74,6 +74,7 @@ struct MediaInfoView: View {
                     .onHover {_ in
                         self.viewModel.changeCursor(currentCursor: NSCursor.current)
                     }
+                    .animation(nil)
                 }
                 .frame(maxWidth: 248)
             }

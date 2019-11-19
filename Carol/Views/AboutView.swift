@@ -45,6 +45,7 @@ struct AboutView: View {
         }
         .padding(24)
         .frame(width: 360.0, height: 480.0, alignment: .top)
+        .background(VisualEffectView(material: NSVisualEffectView.Material.popover, blendingMode: NSVisualEffectView.BlendingMode.behindWindow))
     }
 }
 
