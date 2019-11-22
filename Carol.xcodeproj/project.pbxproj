@@ -20,6 +20,7 @@
 		A77750F22354ECAE000874C4 /* GetCurrentTrack.txt in Resources */ = {isa = PBXBuildFile; fileRef = A77750F12354ECAE000874C4 /* GetCurrentTrack.txt */; };
 		A77750F723578D99000874C4 /* ScriptExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77750F623578D99000874C4 /* ScriptExecutor.swift */; };
 		A77750FA235790A1000874C4 /* ReadFileContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77750F9235790A1000874C4 /* ReadFileContent.swift */; };
+		A784050C2387D7F300ABF842 /* GetCurrentTrackFromMusic.txt in Resources */ = {isa = PBXBuildFile; fileRef = A784050B2387D7F300ABF842 /* GetCurrentTrackFromMusic.txt */; };
 		A79759BD2374975A009EAFB9 /* IllustratedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79759BC2374975A009EAFB9 /* IllustratedView.swift */; };
 		A7983BDC23734F8200E6B5C5 /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7983BDB23734F8200E6B5C5 /* States.swift */; };
 		A7E3F4EE23709EA800892124 /* LyricsFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E3F4ED23709EA800892124 /* LyricsFinder.swift */; };
@@ -55,6 +56,7 @@
 		A77750F12354ECAE000874C4 /* GetCurrentTrack.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCurrentTrack.txt; sourceTree = "<group>"; };
 		A77750F623578D99000874C4 /* ScriptExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptExecutor.swift; sourceTree = "<group>"; };
 		A77750F9235790A1000874C4 /* ReadFileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadFileContent.swift; sourceTree = "<group>"; };
+		A784050B2387D7F300ABF842 /* GetCurrentTrackFromMusic.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetCurrentTrackFromMusic.txt; sourceTree = "<group>"; };
 		A79759BC2374975A009EAFB9 /* IllustratedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IllustratedView.swift; sourceTree = "<group>"; };
 		A7983BDB23734F8200E6B5C5 /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
 		A7E3F4ED23709EA800892124 /* LyricsFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsFinder.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				A77750F12354ECAE000874C4 /* GetCurrentTrack.txt */,
+				A784050B2387D7F300ABF842 /* GetCurrentTrackFromMusic.txt */,
 				A7EEFD4B2369ED14004EE0E7 /* GetAlbumArtSpotify.txt */,
 				A7EEFD4D2369ED37004EE0E7 /* GetAlbumArtMusic.txt */,
 			);
@@ -280,6 +283,7 @@
 				A7EEFD4E2369ED37004EE0E7 /* GetAlbumArtMusic.txt in Resources */,
 				A73A826E2352672C00EA8A40 /* Preview Assets.xcassets in Resources */,
 				A77750F22354ECAE000874C4 /* GetCurrentTrack.txt in Resources */,
+				A784050C2387D7F300ABF842 /* GetCurrentTrackFromMusic.txt in Resources */,
 				A7EEFD4C2369ED14004EE0E7 /* GetAlbumArtSpotify.txt in Resources */,
 				A73A826B2352672C00EA8A40 /* Assets.xcassets in Resources */,
 			);

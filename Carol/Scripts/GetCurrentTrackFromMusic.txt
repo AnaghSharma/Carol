@@ -1,0 +1,17 @@
+if application "Music" is running
+    tell application "Music"
+        if player state is stopped then
+            return "1"
+        else
+            set track_artist to artist of current track
+            set track_name to name of current track
+            set state to ""
+            if player state is paused then
+                set state to "(Paused)"
+            end if
+            return {track_artist, track_name, "Music"}
+        end if
+    end tell
+else
+    return "2"
+end if

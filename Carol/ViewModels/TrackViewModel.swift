@@ -21,6 +21,7 @@ class TrackViewModel: ObservableObject
     @Published var state: States
     private var lyricsFinder: LyricsFinder
     private let apiKey: String
+    private let spotifyInstalled: Bool
     
     enum LyricsService {
         case LyricsOvh
@@ -40,6 +41,7 @@ class TrackViewModel: ObservableObject
         state = States.loading
         lyricsFinder = LyricsFinder()
         apiKey = SecretsReader.shared.getSecretKeys()
+        spotifyInstalled = (NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.spotify.client") != nil)
         settingsMenu.addItem(withTitle: "About", action: #selector(aboutMenuItemClicked), keyEquivalent: "").target = self
         settingsMenu.addItem(NSMenuItem.separator())
         settingsMenu.addItem(withTitle: "Quit", action: #selector(quitMenuItemClicked), keyEquivalent: "q").target = self
@@ -80,7 +82,14 @@ class TrackViewModel: ObservableObject
     private func setTrack()
     {
         state = States.loading
-        executedTrackScript.executeScript("GetCurrentTrack")
+        if spotifyInstalled
+        {
+            executedTrackScript.executeScript("GetCurrentTrack")
+        }
+        else
+        {
+            executedTrackScript.executeScript("GetCurrentTrackFromMusic")
+        }
         
         if executedTrackScript.result.numberOfItems == 3
         {
@@ -173,8 +182,15 @@ class TrackViewModel: ObservableObject
             case .success(let value):
                 let json = JSON(value)
                 let uneditedLyrics = json["message"]["body"]["lyrics"]["lyrics_body"].stringValue
-                self.state = States.content
-                self.track!.lyrics = String(uneditedLyrics.split(separator: String.Element("*"), maxSplits: 1, omittingEmptySubsequences: true)[0])
+                if uneditedLyrics.isEmpty
+                {
+                    self.state = States.empty
+                }
+                else
+                {
+                    self.state = States.content
+                    self.track!.lyrics = String(uneditedLyrics.split(separator: String.Element("*"), maxSplits: 1, omittingEmptySubsequences: true)[0])
+                }
             case .failure(_):
                 self.state = States.empty
             }
