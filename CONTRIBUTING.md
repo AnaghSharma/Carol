@@ -11,5 +11,5 @@ Updated versions preferred
    `xxx1234xxx1234`
 5. Build and run the solution. It should run without any errors.
 
-## macOS app
-For additional help in understanding how to build macOS menu bar app using SwiftUI, please check out [this project](https://github.com/AnaghSharma/Ambar-SwiftUI)
+## macOS menu bar app
+For additional help in understanding how to build macOS menu bar app using SwiftUI, please check out [this project.](https://github.com/AnaghSharma/Ambar-SwiftUI)
