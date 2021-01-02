@@ -5,7 +5,7 @@ Updated versions preferred
 
 ## Steps
 1. Clone this repo and open the project in Xcode.
-2. Register your application at [Musixmatch](developer.musixmatch.com). You will get an API Key after registration.
+2. Register your application at [Musixmatch](https://developer.musixmatch.com). You will get an API Key after registration.
 3. Add a new `Empty` file at the root of your project and name it as `Secrets.txt`.
 4. Add your API key in `Secrets.txt`. The file should contain just the API key like this -
    `xxx1234xxx1234`
