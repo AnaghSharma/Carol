@@ -1,7 +1,7 @@
 
 <p align="center"><img width=97% src="https://www.dropbox.com/s/gnwndiovrh0cc54/GitHub%20Hero.jpg?raw=1"></p>
 <h2 align="center">Carol</h2>
-<p align="center">Carol is a minimal and beautiful lyrics app for macOS</p>
+<p align="center">Carol is a minimal and beautiful lyrics app for macOS built with SwiftUI</p>
 <br>
 <p align="center"><img width=100% src="https://www.dropbox.com/s/nbzaufb57q3e99h/GitHub%20Screenshot.png?raw=1"></p>
 <br>
@@ -11,6 +11,7 @@
 * One-touch access to lyrics straight from the menu bar.
 * Supports both Apple Music and Spotify.
 * Minimal design with support for Album artworks.
+* Adapts to system's light/dark theme.
 * Light in size.
 
 ## How to use
@@ -22,7 +23,7 @@ macOS 10.15 (Catalina) and above.
 Unzip the `Carol.zip` file and copy `Carol` to your Applications folder.
 
 #### Launch
-Launch the app from Applications folder. It will appear in your menu bar. Enjoy.
+Launch the app from the Applications folder. It will appear in your menu bar. Provide required permissions on first launch and Enjoy.
 <br>
 
 ## Donate
